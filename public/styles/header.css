@@ -1,0 +1,16 @@
+header {
+    height: 400px;
+    width: 100%;
+    position: absolute;
+    top: 120px;
+    background-color: coral;
+}
+
+header img {
+    margin: 0 auto;
+    display: block;
+}
+
+header h2 {
+    text-align: center;
+}
