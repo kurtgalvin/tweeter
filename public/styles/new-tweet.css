@@ -1,0 +1,39 @@
+.new-tweet label {
+    float: left;
+    min-width: 320px;
+}
+
+.new-tweet textarea {
+    border: none;
+    resize: none; 
+    float: left;
+    width: calc(100% - 320px);
+    padding: 0;
+    background-color: transparent;
+}
+
+.new-tweet textarea:focus {
+    outline: none;
+}
+
+.new-tweet label, .new-tweet textarea {
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+}
+
+.new-tweet button {
+    float: left;
+    color: white;
+    background-color: coral;
+    border: none;
+    border-radius: 3px;
+}
+
+.new-tweet output {
+    float: right;
+}
+
+.new-tweet button, .new-tweet output {
+    margin-top: 10px;
+    font-family: 'Bungee', cursive;
+}
