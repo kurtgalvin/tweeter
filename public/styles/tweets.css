@@ -4,34 +4,34 @@
     width: 100%;
 }
 
-#tweets * {
+.tweet * {
     margin: 0;
 }
 
-#tweets article {
+.tweet {
     margin: 20px 0;
     padding: 15px;
     border: 2px solid black;
 }
 
-#tweets article:hover {
+.tweet:hover {
     box-shadow: 5px 5px #6582e2;
 }
 
-#tweets header {
+.tweet header {
     margin-bottom: 30px;
     padding: 0 10px;
     display: flex;
     justify-content: space-between;
 }
 
-#tweets main {
+.tweet main {
     margin: 30px 0;
     padding: 0 10px;
     font-weight: bold;
 }
 
-#tweets footer {
+.tweet footer {
     display: flex;
     justify-content: space-between;
     padding: 10px 10px 0 10px;
@@ -39,11 +39,11 @@
     font-size: 15px;
 }
 
-#tweets .username {
+.tweet .username {
     color: #6582e2;
 }
 
-#tweets .icons span {
+.tweet .icons span {
     margin: 0 5px;
     color: #6582e2;
 }
