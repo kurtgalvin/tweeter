@@ -9,6 +9,7 @@
 }
 
 #tweets article {
+    margin: 20px 0;
     padding: 15px;
     border: 2px solid black;
 }
