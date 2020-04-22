@@ -31,30 +31,30 @@ const data = [
 
 const createTweetElement = function({user, content}) {
   return `
-  <article class="tweet">
-    <header>
-      <section>
-        <img src="${user.avatars}" alt="">
-        <span>${user.name}</span>
-      </section>
-      <span class="username">${user.handle}</span>
-    </header>
+    <article class="tweet">
+      <header>
+        <section>
+          <img src="${user.avatars}" alt="">
+          <span>${user.name}</span>
+        </section>
+        <span class="username">${user.handle}</span>
+      </header>
 
-    <main>
-      <p>${content.text}</p>
-    </main>
+      <main>
+        <p>${content.text}</p>
+      </main>
 
-    <footer>
-      <time>
-        <span>10</span> days ago
-      </time> 
-      <div class="icons">
-        <span class="material-icons">flag</span>
-        <span class="material-icons">autorenew</span>
-        <span class="material-icons">thumb_up_alt</span>
-      </div>
-    </footer>
-  </article>
+      <footer>
+        <time>
+          <span>10</span> days ago
+        </time> 
+        <div class="icons">
+          <span class="material-icons">flag</span>
+          <span class="material-icons">autorenew</span>
+          <span class="material-icons">thumb_up_alt</span>
+        </div>
+      </footer>
+    </article>
   `
 }
 
@@ -67,6 +67,16 @@ const renderTweets = function(tweets) {
   }))
 }
 
+const newTweetSubmit = function(event) {
+  event.preventDefault()
+  console.log("SUBMIT")
+}
+
+const attachEventHandlers = function() {
+  $('.new-tweet form').submit(newTweetSubmit)
+}
+
 $(document).ready(function() {
   renderTweets(data)
+  attachEventHandlers()
 })
