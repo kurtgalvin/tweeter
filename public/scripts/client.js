@@ -4,19 +4,25 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 const createTweetElement = function({user, content}) {
   return `
     <article class="tweet">
       <header>
         <section>
-          <img src="${user.avatars}" alt="">
-          <span>${user.name}</span>
+          <img src="${escape(user.avatars)}" alt="">
+          <span>${escape(user.name)}</span>
         </section>
-        <span class="username">${user.handle}</span>
+        <span class="username">${escape(user.handle)}</span>
       </header>
 
       <main>
-        <p>${content.text}</p>
+        <p>${escape(content.text)}</p>
       </main>
 
       <footer>
@@ -68,7 +74,7 @@ const newTweetSubmit = function(event) {
     })
     .then(_ => loadTweets())
   } else {
-    console.log('bad')
+    alert('Bad Tweet Input')
   }
 }
 
