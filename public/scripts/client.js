@@ -51,13 +51,25 @@ const loadTweets = function() {
   })
 }
 
+const newTweetValid = function(val) {
+  if (val && val.length <= 140) {
+    return true
+  }
+  return false
+}
+
 const newTweetSubmit = function(event) {
   event.preventDefault();
-  $.post({
-    url: '/tweets/',
-    data: $(this).serialize()
-  })
-  .then(_ => loadTweets())
+  const $this = $(this)
+  if (newTweetValid($this.find('textarea').val())) {
+    $.post({
+      url: '/tweets/',
+      data: $this.serialize()
+    })
+    .then(_ => loadTweets())
+  } else {
+    console.log('bad')
+  }
 }
 
 const attachEventHandlers = function() {
