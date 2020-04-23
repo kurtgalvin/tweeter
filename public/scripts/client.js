@@ -83,6 +83,7 @@ const newTweetSubmit = function(event) {
       data: $this.serialize()
     }).then(_ => {
       $text.val('')
+      $('.new-tweet .counter').val(140)
       loadTweets()
     })
   })
