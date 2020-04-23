@@ -92,9 +92,17 @@ const newTweetSubmit = function(event) {
   })
 }
 
+const toggleDisableNewTweet = function() {
+  $container = $('.container')
+  $container.toggleClass('disable-new-tweet')
+  if (!$container.hasClass('disable-new-tweet')) {
+    $('#tweet-text').focus()
+  }
+}
+
 const attachEventHandlers = function() {
   $('.new-tweet form').submit(newTweetSubmit)
-  $('#nav-tweet-toggle').click(() => $('.container').toggleClass('disable-new-tweet'))
+  $('#nav-tweet-toggle').click(toggleDisableNewTweet)
 }
 
 $(document).ready(function() {
