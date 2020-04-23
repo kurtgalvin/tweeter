@@ -54,3 +54,10 @@
     margin: 0 5px;
     color: #6582e2;
 }
+
+@media (min-width: 1024px) {
+    #tweets {
+        width: 55%;
+        top: 350px;
+    }
+  }

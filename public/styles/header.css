@@ -15,3 +15,13 @@ header img {
 header h2 {
     text-align: center;
 }
+
+@media (min-width: 1024px) {
+    body > header {
+        position: static;
+        margin-top: 160px;
+        width: 30%;
+        padding-top: 50px;
+        height: 500px;
+    }
+  }

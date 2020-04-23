@@ -4,13 +4,29 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const daysAgoDisplay = function(created_at) {
+  console.log(created_at - (1000 * 60 * 60 * 24))
+  const daysAgo = Math.floor((new Date() - created_at) / (1000 * 60 * 60 * 24))
+
+  if (daysAgo === 0) {
+    return "Today"
+  } else if (daysAgo === 1) {
+    return "Yesterday"
+  } else if (daysAgo <= 10) {
+    return `${daysAgo} days ago`
+  } else {
+    return "10+ days ago"
+  }
+
+}
+
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
-const createTweetElement = function({user, content}) {
+const createTweetElement = function({user, content, created_at}) {
   return `
     <article class="tweet">
       <header>
@@ -27,7 +43,7 @@ const createTweetElement = function({user, content}) {
 
       <footer>
         <time>
-          <span>10</span> days ago
+          ${daysAgoDisplay(created_at)}
         </time> 
         <div class="icons">
           <span class="material-icons">flag</span>
