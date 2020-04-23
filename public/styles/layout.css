@@ -30,4 +30,9 @@ body > main {
   top: 520px;
   width: 90%;
   left: 5%;
+  transition: top 1s;
+}
+
+body > main.disable-new-tweet {
+  top: 300px;
 }

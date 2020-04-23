@@ -93,6 +93,7 @@ const newTweetSubmit = function(event) {
 
 const attachEventHandlers = function() {
   $('.new-tweet form').submit(newTweetSubmit)
+  $('#nav-tweet-toggle').click(() => $('.container').toggleClass('disable-new-tweet'))
 }
 
 $(document).ready(function() {
