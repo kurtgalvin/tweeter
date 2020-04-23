@@ -57,25 +57,29 @@ const loadTweets = function() {
   })
 }
 
-const newTweetValid = function(val) {
-  if (val && val.length <= 140) {
-    return true
-  }
-  return false
+const newTweetValidation = function(val) {
+  return new Promise((resolve, reject) => {
+    if (val && val.length <= 140) {
+      resolve(val)
+    } else {
+      reject()
+    }
+  })
 }
 
 const newTweetSubmit = function(event) {
   event.preventDefault();
   const $this = $(this)
-  if (newTweetValid($this.find('textarea').val())) {
+  newTweetValidation($this.find('textarea').val())
+  .then(val => {
     $.post({
       url: '/tweets/',
       data: $this.serialize()
-    })
-    .then(_ => loadTweets())
-  } else {
-    alert('Bad Tweet Input')
-  }
+    }).then(_ => loadTweets())
+  })
+  .catch(err => {
+    alert('Bad Tweet')
+  })
 }
 
 const attachEventHandlers = function() {
