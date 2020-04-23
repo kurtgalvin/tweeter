@@ -47,7 +47,7 @@ const renderTweets = function(tweets) {
   $tweets.empty()
   $tweets.append(...tweets.map(tweet => {
     return createTweetElement(tweet)
-  }));
+  }).reverse());
 }
 
 const loadTweets = function() {
