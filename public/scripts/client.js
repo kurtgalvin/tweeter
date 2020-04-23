@@ -59,7 +59,7 @@ const loadTweets = function() {
 
 const newTweetValidation = function(val) {
   return new Promise((resolve, reject) => {
-    if (!val) {
+    if (!val.trim()) {
       reject('No Tweet!')
     } else if (val.length > 140) {
       reject('Tweet Too Long!')
