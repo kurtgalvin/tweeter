@@ -5,6 +5,7 @@
  */
 
 const daysAgoDisplay = function(created_at) {
+  // render created_at time in a presentable string
   console.log(created_at - (1000 * 60 * 60 * 24))
   const daysAgo = Math.floor((new Date() - created_at) / (1000 * 60 * 60 * 24))
 
@@ -74,6 +75,7 @@ const loadTweets = function() {
 }
 
 const newTweetValidation = function(val) {
+  // Resolve promise when tweet value meets requirements
   return new Promise((resolve, reject) => {
     if (!val.trim()) {
       reject('No Tweet!')
@@ -86,6 +88,7 @@ const newTweetValidation = function(val) {
 }
 
 const newTweetSubmit = function(event) {
+  // Event handler to render error message or clear and submit tweet
   event.preventDefault();
   const $this = $(this)
   const $text = $this.find('textarea')
@@ -109,6 +112,7 @@ const newTweetSubmit = function(event) {
 }
 
 const toggleDisableNewTweet = function() {
+  // Event handler to toggle hiding tweet form
   $container = $('.container')
   $container.toggleClass('disable-new-tweet')
   if (!$container.hasClass('disable-new-tweet')) {
