@@ -59,10 +59,12 @@ const loadTweets = function() {
 
 const newTweetValidation = function(val) {
   return new Promise((resolve, reject) => {
-    if (val && val.length <= 140) {
-      resolve(val)
+    if (!val) {
+      reject('No Tweet!')
+    } else if (val.length > 140) {
+      reject('Tweet Too Long!')
     } else {
-      reject()
+      resolve(val)
     }
   })
 }
@@ -70,15 +72,18 @@ const newTweetValidation = function(val) {
 const newTweetSubmit = function(event) {
   event.preventDefault();
   const $this = $(this)
+  const $warning = $this.find('strong.red')
+  $warning.empty()
+
   newTweetValidation($this.find('textarea').val())
-  .then(val => {
+  .then(_ => {
     $.post({
       url: '/tweets/',
       data: $this.serialize()
     }).then(_ => loadTweets())
   })
   .catch(err => {
-    alert('Bad Tweet')
+    $warning.append(document.createTextNode(err))
   })
 }
 
