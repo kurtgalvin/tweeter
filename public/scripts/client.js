@@ -72,15 +72,19 @@ const newTweetValidation = function(val) {
 const newTweetSubmit = function(event) {
   event.preventDefault();
   const $this = $(this)
+  const $text = $this.find('textarea')
   const $warning = $this.find('strong.red')
   $warning.empty()
 
-  newTweetValidation($this.find('textarea').val())
+  newTweetValidation($text.val())
   .then(_ => {
     $.post({
       url: '/tweets/',
       data: $this.serialize()
-    }).then(_ => loadTweets())
+    }).then(_ => {
+      $text.val('')
+      loadTweets()
+    })
   })
   .catch(err => {
     $warning.append(document.createTextNode(err))
